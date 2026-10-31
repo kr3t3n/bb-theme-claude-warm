@@ -1,0 +1,181 @@
+/* Claude Warm. Shared geometry; separate paper and charcoal palettes. */
+:root, .light {
+  --canvas: #faf9f5;
+  --ink: #30302e;
+  --primary: #a94f32;
+  --primary-foreground: #fffaf6;
+  --card: #fffefa;
+  --popover: #fffefa;
+  --sidebar: #f0eee6;
+  --sidebar-foreground: #393832;
+  --sidebar-accent: #e7e4da;
+  --sidebar-border: #e3e0d7;
+  --secondary: #eeece4;
+  --accent: #eeece4;
+  --muted: #e9e6dd;
+  --muted-foreground: #68665e;
+  --subtle-foreground: #747167;
+  --readback-foreground: #6c695f;
+  --border: #dedbd2;
+  --border-hairline: #e8e5dc;
+  --border-seam: #e4e1d8;
+  --input: #c9c5ba;
+  --surface-recessed: #f1efe7;
+  --surface-raised: #fffefa;
+  --surface-scrim: #faf9f5f2;
+  --state-hover: #30302e0a;
+  --state-active: #30302e12;
+  --surface-selected: #ece5da;
+  --surface-selected-border: #cbb9a4;
+  --destructive: #af3e3e;
+  --destructive-foreground: #ffffff;
+  --destructive-text: #a53333;
+  --warning: #a77524;
+  --warning-text: #835b19;
+  --attention: #b17b2b;
+  --success: #4e7045;
+  --diff-added: #466b3d;
+  --diff-removed: #a53333;
+  --pr-merged: #795893;
+  --file-accent: #825435;
+  --radius: .625rem;
+  --font-sans: Inter, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Claude Warm Serif", Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+  --font-mono: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --font-terminal: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --cw-composer: #fffefa;
+  --cw-shadow: 0 2px 8px #302b2010, 0 12px 32px #302b2005;
+  --cw-overlay-shadow: 0 8px 32px #302b2018, 0 2px 6px #302b200a;
+  --cw-clay: #c27052;
+}
+.dark {
+  --canvas: #262624;
+  --ink: #ecebe5;
+  --primary: #dea184;
+  --primary-foreground: #29221e;
+  --card: #30302d;
+  --popover: #30302d;
+  --sidebar: #21211f;
+  --sidebar-foreground: #d7d5cc;
+  --sidebar-accent: #34342f;
+  --sidebar-border: #373731;
+  --secondary: #34342f;
+  --accent: #373731;
+  --muted: #3c3b35;
+  --muted-foreground: #b5b2a7;
+  --subtle-foreground: #a6a296;
+  --readback-foreground: #aeaa9d;
+  --border: #48473f;
+  --border-hairline: #3b3b35;
+  --border-seam: #3a3a34;
+  --input: #626055;
+  --surface-recessed: #20201e;
+  --surface-raised: #30302c;
+  --surface-scrim: #262624f2;
+  --state-hover: #ecebe50b;
+  --state-active: #ecebe514;
+  --surface-selected: #42392f;
+  --surface-selected-border: #75604b;
+  --destructive: #bc6060;
+  --destructive-foreground: #ffffff;
+  --destructive-text: #eca09b;
+  --warning: #d1ab67;
+  --warning-text: #dfbd80;
+  --attention: #d1ab67;
+  --success: #a1bc92;
+  --diff-added: #a1bc92;
+  --diff-removed: #eca09b;
+  --pr-merged: #c2a4db;
+  --file-accent: #d9ae8f;
+  --cw-composer: #30302d;
+  --cw-shadow: 0 2px 8px #00000018, 0 12px 32px #0000000a;
+  --cw-overlay-shadow: 0 8px 32px #00000038, 0 2px 6px #00000020;
+  --cw-clay: #d58c6c;
+}
+
+/* Quiet chrome. Keep the native icons, hit targets and layout behavior. */
+[data-testid="sidebar-navigation-rail"] {
+  background: var(--sidebar);
+  border-right: 1px solid var(--border-seam);
+}
+:is([data-testid="app-sidebar-body"], [data-testid="nav-rail-sidebar-body"]) {
+  background: var(--sidebar);
+}
+[data-testid="sidebar-navigation-rail"] button {border-radius: 9px;}
+[data-testid="sidebar-navigation-rail"] button:hover {background: var(--sidebar-accent);}
+[data-sidebar-thread-shortcut-target] {border-radius: 8px;}
+[data-testid="app-sidebar-body"] :has(> [data-sidebar-thread-shortcut-target]) {
+  border-radius: 8px;
+  margin-block: 2px;
+}
+header:has([data-testid="app-page-header-content-row"]) {
+  background: var(--surface-scrim);
+  border-bottom: 1px solid var(--border-hairline);
+}
+.bb-thread-title {font-weight: 500; letter-spacing: -.02em;}
+[data-thread-window] {background: var(--canvas);}
+
+/* Editorial response typography, scoped away from tools and user bubbles. */
+[data-message-column] > [data-sidebar-swipe-selectable] > [data-markdown-preview] {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.7;
+  letter-spacing: .002em;
+  font-optical-sizing: auto;
+}
+[data-message-column] > [data-sidebar-swipe-selectable] > [data-markdown-preview] :is(p, ul, ol, blockquote) {
+  margin-bottom: .85em;
+}
+[data-message-column] > [data-sidebar-swipe-selectable] > [data-markdown-preview] :is(h1, h2, h3, h4) {
+  font-family: var(--font-serif);
+  line-height: 1.3;
+  letter-spacing: -.018em;
+  font-weight: 600;
+  margin-top: 1.25em;
+  margin-bottom: .5em;
+}
+[data-message-column] > [data-sidebar-swipe-selectable] > [data-markdown-preview] h1 {font-size: 1.65em;}
+[data-message-column] > [data-sidebar-swipe-selectable] > [data-markdown-preview] h2 {font-size: 1.4em;}
+[data-message-column] > [data-sidebar-swipe-selectable] > [data-markdown-preview] h3 {font-size: 1.18em;}
+[data-message-column] > [data-sidebar-swipe-selectable] > [data-markdown-preview] > :first-child {margin-top: 0;}
+[data-message-column] > [data-sidebar-swipe-selectable] > [data-markdown-preview] > :last-child {margin-bottom: 0;}
+[data-markdown-preview] :is(pre, code, kbd) {font-family: var(--font-mono); letter-spacing: normal;}
+[data-markdown-preview] :is(table, button, [data-bb-plugin-root]) {font-family: var(--font-sans); letter-spacing: normal;}
+
+/* A paper-like writing surface with restrained elevation. */
+[data-promptbox] {
+  background: var(--cw-composer);
+  border: 1px solid var(--input);
+  border-radius: 20px;
+  box-shadow: var(--cw-shadow);
+}
+[data-promptbox] [contenteditable="true"] {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  padding-block: 4px;
+}
+[data-promptbox]:focus-within {
+  border-color: var(--cw-clay);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--cw-clay) 18%, transparent), var(--cw-shadow);
+}
+[data-promptbox-submit-action][type="submit"] {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: 10px;
+}
+[data-promptbox-submit-action][type="submit"]:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--primary) 88%, var(--ink));
+}
+[data-promptbox-submit-action][type="submit"]:disabled {opacity: .45;}
+:is([role="menu"], [role="listbox"], [role="dialog"]) {
+  border-color: var(--border);
+  border-radius: 14px;
+  box-shadow: var(--cw-overlay-shadow);
+}
+[data-testid="app-layout-root"] :focus-visible {outline-color: var(--primary); outline-offset: 3px;}
+::selection {background: color-mix(in srgb, var(--cw-clay) 28%, transparent);}
+@media (max-width: 640px) {
+  [data-promptbox] {border-radius: 16px;}
+  [data-message-column] > [data-sidebar-swipe-selectable] > [data-markdown-preview] {font-size: 16px; line-height: 1.65;}
+}
